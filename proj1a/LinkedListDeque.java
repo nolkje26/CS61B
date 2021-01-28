@@ -1,5 +1,3 @@
-import javax.xml.crypto.Data;
-
 public class LinkedListDeque<DataType>{
     // Nested class - creates each Node
     private class Node{
