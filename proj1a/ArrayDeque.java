@@ -95,8 +95,4 @@ public class ArrayDeque<Item>{
     public Item get(int index){
         return items[index];
     }
-
-    public static void main(String[] args) {
-
-    }
 }
