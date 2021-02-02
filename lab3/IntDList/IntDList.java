@@ -16,6 +16,7 @@ public class IntDList {
      * An empty list.
      */
     public IntDList() {
+
         front = back = null;
     }
 

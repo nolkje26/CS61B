@@ -45,17 +45,17 @@ public class BuggyIntDListTest {
         assertEquals("Twenty first item should be 140", 140, l.get(20));
 
         l = new BuggyIntDList(1, 3, 5);
-        m = new BuggyIntDList(1, 3, 5);
+        m = new BuggyIntDList(2, 4, 6);
         l.mergeIntDList(m);
         assertEquals("Size after merge should be 6", 6, l.size());
         assertEquals(".getFront() should be 1", 1, l.getFront());
-        assertEquals(".getBack() should be 5", 5, l.getBack());
+        assertEquals(".getBack() should be 6", 6, l.getBack());
         assertEquals("First item should be 1", 1, l.get(0));
-        assertEquals("Second item should be 1", 1, l.get(1));
+        assertEquals("Second item should be 2", 2, l.get(1));
         assertEquals("Third item should be 3", 3, l.get(2));
-        assertEquals("Fourth item should be 3", 3, l.get(3));
+        assertEquals("Fourth item should be 4", 4, l.get(3));
         assertEquals("Fifth item should be 5", 5, l.get(4));
-        assertEquals("Sixth item should be 5", 5, l.get(5));
+        assertEquals("Sixth item should be 6", 6, l.get(5));
 
         l = new BuggyIntDList(5);
         m = new BuggyIntDList();
