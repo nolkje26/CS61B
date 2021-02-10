@@ -2,10 +2,6 @@ package es.datastructur.synthesizer;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-//TODO: Make sure to that this class and all of its methods are public
-//TODO: Make sure to add the override tag for all overridden methods
-//TODO: Make sure to make this class implement BoundedQueue<T>
-
 public class ArrayRingBuffer<T> implements BoundedQueue<T>, Iterable<T> {
     private int first; /* Index for the next dequeue or peek. */
     private int last; /* Index for the next enqueue. */
@@ -14,8 +10,6 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T>, Iterable<T> {
 
     /** Create a new ArrayRingBuffer with the given capacity. */
     public ArrayRingBuffer(int capacity) {
-        // TODO: Create new array with capacity elements.
-        //       first, last, and fillCount should all be set to 0.
         this.first = 0;
         this.last = 0;
         this.fillCount = 0;
@@ -58,9 +52,6 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T>, Iterable<T> {
      */
     @Override
     public T dequeue() {
-        // TODO: Dequeue the first item. Don't forget to decrease fillCount and
-        //       update first. Don't worry about throwing the RuntimeException until you
-        //       get to task 4.
         if (fillCount == 0) {
             throw new RuntimeException("Ring Buffer underflow");
         }
@@ -77,9 +68,6 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T>, Iterable<T> {
      */
     @Override
     public T peek() {
-        // TODO: Return the first item. None of your instance variables should
-        //       change. Don't worry about throwing the RuntimeException until you
-        //       get to task 4.
         if (fillCount == 0) {
             throw new RuntimeException("Ring Buffer underflow"); }
         return rb[first];
