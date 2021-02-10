@@ -34,9 +34,6 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T>, Iterable<T> {
      */
     @Override
     public void enqueue(T x) {
-        // TODO: Enqueue the item. Don't forget to increase fillCount and update
-        //       last. Don't worry about throwing the RuntimeException until you
-        //       get to task 4.
         if (fillCount == capacity()) {
             throw new RuntimeException("Ring Buffer overflow");
         }
