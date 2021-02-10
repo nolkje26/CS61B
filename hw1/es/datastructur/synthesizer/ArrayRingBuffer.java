@@ -75,7 +75,7 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T>, Iterable<T> {
         return new ArrayRingBufferIterator();
     }
 
-    // Private innerclass that will implement a hasNext() and next() method
+    // Private inner class that will implement a hasNext() and next() method
     private class ArrayRingBufferIterator implements Iterator<T> {
         private int next;
 
