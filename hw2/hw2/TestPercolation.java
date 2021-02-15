@@ -40,5 +40,18 @@ public class TestPercolation {
         assertTrue(perc.isFull(4, 2));
         assertTrue(perc.percolates()); // percolates() should return true
         assertEquals(6, perc.numberOfOpenSites());
+
+        Percolation perc2 = new Percolation(6);
+        perc2.open(5, 0);
+        assertFalse(perc2.percolates());
+        assertFalse(perc2.isFull(5, 0));
+        perc2.open(4, 1);
+        perc2.open(3, 2);
+        perc2.open(2,2);
+        perc2.open(1,2);
+        perc2.open(0, 2);
+        assertTrue(perc2.isFull(3, 2));
+        assertFalse(perc2.isFull(4, 1));
+        assertFalse(perc2.percolates());
     }
 }
