@@ -80,10 +80,9 @@ public class Percolation {
                 grid[row][col] = true;
                 connect(row, col, this.height, this.width);
                 numOpenSites++;
-                if (row == this.width - 1) {
-                       if (isFull(row, col) && !this.isPercolated) {
-                               isPercolated = true;
-                       }
+                // Sets isPercolated to true if it's first site that percolates
+                if (!this.isPercolated && row == this.width - 1 && isFull(row, col)) {
+                        this.isPercolated = true;
                 }
         }
 
@@ -96,6 +95,7 @@ public class Percolation {
 
         // is the site (row, col) full?
         public boolean isFull(int row, int col) {
+                if (!isOpen(row, col)) { return false; }
                 int currSite = xyTo1D(row, col);
                 for (int i = 0; i < this.width; i++) {
                         if (uf.connected(i, currSite)) {
