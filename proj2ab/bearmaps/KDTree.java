@@ -20,13 +20,15 @@ public class KDTree {
 
     public KNode root;
 
-    // Let (x, y) be represented by (0, 1)
+    // Constructor uses insert() to build the K-d tree.
+    // The orientation will change at each depth.
     public KDTree(List<Point> points) {
          for (Point point : points){
              this.root = insert(this.root, point, vertical);
          }
     }
 
+    // Function inserts point
     public KNode insert(KNode node, Point point, boolean orienation) {
         if (node == null) {
             return new KNode(point, orienation);
@@ -46,6 +48,7 @@ public class KDTree {
         return node;
     }
 
+    // Helper function to find nearest point
     private KNode nearestHelper(KNode node, Point point, KNode best) {
         if (node == null) { return best; }
         if (Point.distance(point, node.point) < Point.distance(point, best.point)) {
@@ -83,6 +86,8 @@ public class KDTree {
         return best;
     }
 
+    // Nearest function uses inputted (x, y) to create a point and uses nearestHelper()
+    // to find the closest point
     public Point nearest(double x, double y) {
         KNode best = nearestHelper(this.root, new Point(x, y), this.root);
         return best.point;
