@@ -70,7 +70,6 @@ public class AStarSolver<Vertex> implements ShortestPathsSolver<Vertex> {
                 this.timeSpent = sw.elapsedTime();
                 Collections.reverse(solution);
                 return;
-                // if PQ is empty:
                // if timeout is exceeded
             } else if (sw.elapsedTime() > timeout) {
                 this.outcome = SolverOutcome.TIMEOUT;
@@ -81,6 +80,7 @@ public class AStarSolver<Vertex> implements ShortestPathsSolver<Vertex> {
             currVertex = fringe.removeSmallest();
 
             for (WeightedEdge<Vertex> neighbor : graph.neighbors(currVertex)) {
+                // Avoid revisiting vertices that have already been visited
                 if (!visited.contains(neighbor)) {
                     relax(neighbor);
                 }
